@@ -4,10 +4,12 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   ;; read dependencies from deps.edn
-  :plugins [[lein-tools-deps "0.4.1"]]
-  :middleware [lein-tools-deps.plugin/resolve-dependencies-with-deps-edn]
-  :lein-tools-deps/config {:config-files [:install :user :project]}
+  ; :plugins [[lein-tools-deps "0.4.1"]]
+  ; :middleware [lein-tools-deps.plugin/resolve-dependencies-with-deps-edn]
+  ; :lein-tools-deps/config {:config-files [:install :user :project]}
+  :dependencies [[honeysql "1.0.444"  :exclusions [org.clojure/clojurescript]]]
 
   :tach {:test-runner-ns 'honeysql-postgres.postgres-test
          :source-paths ["src" "test"]}
-  :profiles {:dev {:plugins [[lein-tach "0.4.0"]]}})
+  :profiles {:dev {:source-paths   ["dev/src"]
+                   :plugins [[lein-tach "0.4.0"]]}})
